@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Copyright 2019 Bruno Toshio Sugano <brunotoshio@gmail.com>
+
 import re
 
 def replace_urls(text, replace_text = ''):

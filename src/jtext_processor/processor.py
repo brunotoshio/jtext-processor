@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# Copyright 2019 Bruno Toshio Sugano <brunotoshio@gmail.com>
+
+
 from .replacer import replace_numbers, replace_prices, replace_urls, lower
 from .jconverter import kana_to_full, digits_to_half, alpha_to_full, normalize_words
 import logging
