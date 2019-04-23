@@ -10,8 +10,11 @@ def test_kana_to_full():
 def test_digits_to_half():
     assert jconverter.digits_to_half('今日は３９度みたいです1234ABC') == '今日は39度みたいです1234ABC'
 
+
 def test_alpha_to_full():
     assert jconverter.alpha_to_full('takaidesu') == 'たかいです'
 
+
 def test_normalize_words():
-    assert True # Basically using jaconv without any additional parameter
+    jconverter.normalize_words('')
+    assert True     # Basically using jaconv without any additional parameter

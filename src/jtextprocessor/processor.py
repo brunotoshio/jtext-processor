@@ -15,41 +15,43 @@ from .replacer import replace_urls
 
 class JText:
 
-    __operators = {
-        'remove_url': replace_urls,
-        'replace_url': replace_urls,
-        'remove_prices': replace_prices,
-        'replace_prices': replace_prices,
-        'remove_numbers': replace_numbers,
-        'replace_numbers': replace_numbers,
-        'to_full_width': kana_to_full,
-        'digits': digits_to_half,
-        'alpha_to_full': alpha_to_full,
-        'normalize': normalize_words,
-        'lower': lower
-    }
-
-    def __init__(self, options={}):
+    def __init__(self):
         self._pipeline = []
-
-        default_options = {
-            'dict_path': ''
+        self._operators = {
+            'remove_url': replace_urls,
+            'replace_url': replace_urls,
+            'remove_prices': replace_prices,
+            'replace_prices': replace_prices,
+            'remove_numbers': replace_numbers,
+            'replace_numbers': replace_numbers,
+            'to_full_width': kana_to_full,
+            'digits': digits_to_half,
+            'alpha_to_full': alpha_to_full,
+            'normalize': normalize_words,
+            'lower': lower
         }
-        self._option = {**default_options, **options}
 
-    def process(self, pipeline):
+    def prepare(self, pipeline):
+        self._pipeline = []
         for step in pipeline:
             task = {}
             operation = next(iter(step))
-            if operation in JText.__operators:
-                task['handler'] = JText.__operators[operation]
-                task['args'] = step[operation]
+            if operation in self._operators:
+                task['handler'] = self._operators[operation]
+                if isinstance(step, dict):
+                    task['args'] = step[operation]
+                self._pipeline.append(task)
             else:
                 logging.error(f'Invalid operation: {operation}')
                 return
-
-    def __process(self, ordered_tasks, text):
+    
+    def run(self, text):
         next_input = text
-        for task in ordered_tasks:
-            args = task['args']
-            next_input = task['handler'](next_input, **args)
+        for task in self._pipeline:
+            if 'args' in task:
+                args = task['args']
+                next_input = task['handler'](next_input, **args)
+            else:
+                next_input = task['handler'](next_input)
+        return next_input
+        
