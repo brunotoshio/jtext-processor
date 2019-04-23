@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 # Copyright 2019 Bruno Toshio Sugano <brunotoshio@gmail.com>
 
-
-from .replacer import replace_numbers, replace_prices, replace_urls, lower
-from .jconverter import kana_to_full, digits_to_half, alpha_to_full, normalize_words
 import logging
+
+from .jconverter import alpha_to_full
+from .jconverter import digits_to_half
+from .jconverter import kana_to_full
+from .jconverter import normalize_words
+from .replacer import lower
+from .replacer import replace_numbers
+from .replacer import replace_prices
+from .replacer import replace_urls
+
 
 class JText:
 
@@ -22,7 +29,7 @@ class JText:
         'lower': lower
     }
 
-    def __init__(self, options = {}):
+    def __init__(self, options={}):
         self._pipeline = []
 
         default_options = {
@@ -46,9 +53,3 @@ class JText:
         for task in ordered_tasks:
             args = task['args']
             next_input = task['handler'](next_input, **args)
-
-
-
-    
-
-
