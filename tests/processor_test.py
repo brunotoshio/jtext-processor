@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+import logging
 from unittest import mock
 
 from jtextprocessor import processor
@@ -113,3 +114,31 @@ def test_class_jtext_remove_url(mocked):
     ])
     jtext.run('kore')
     assert mocked.called
+
+
+def test_class_jtext_prepare():
+    jtext = processor.JText()
+    list_of_tasks = [
+        {'alpha_to_full'},
+        {'digits'},
+        {'to_full_width'},
+        {'normalize'},
+        {'lower'},
+        {'replace_numbers': {'replace_text': 'n'}},
+        {'remove_numbers'},
+        {'replace_prices': {'replace_text': '$'}},
+        {'remove_prices'},
+        {'replace_url': {'replace_text': 'url'}},
+        {'remove_url'}
+    ]
+    assert len(list_of_tasks) == len(jtext._operators.keys())
+    jtext.prepare(list_of_tasks)
+    assert len(jtext._pipeline) == len(list_of_tasks)
+
+
+def test_class_jtext_prepare_error(caplog):
+    with caplog.at_level(logging.ERROR):
+        jtext = processor.JText()
+        jtext.prepare([{'non_existing_task'}])
+        assert ['Invalid operation: non_existing_task'] == [rec.message for rec in caplog.records]
+
