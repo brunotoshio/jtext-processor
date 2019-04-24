@@ -13,8 +13,3 @@ def test_digits_to_half():
 
 def test_alpha_to_full():
     assert jconverter.alpha_to_full('takaidesu') == 'たかいです'
-
-
-def test_normalize_words():
-    jconverter.normalize_words('')
-    assert True     # Basically using jaconv without any additional parameter

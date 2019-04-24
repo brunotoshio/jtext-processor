@@ -1,3 +1,4 @@
-__version__ = '0.0.0'
+__version__ = '0.1.0b'
 
-from .processor import JText  # NOQA
+from .mecab_handler import MeCabHandler  # NOQA
+from .processor import JTextProcessor  # NOQA

@@ -14,7 +14,3 @@ def digits_to_half(text):
 
 def alpha_to_full(text):
     return jaconv.alphabet2kana(text)
-
-
-def normalize_words(text):
-    return jaconv.normalize(text)

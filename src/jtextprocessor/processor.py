@@ -6,14 +6,13 @@ import logging
 from .jconverter import alpha_to_full
 from .jconverter import digits_to_half
 from .jconverter import kana_to_full
-from .jconverter import normalize_words
 from .replacer import lower
 from .replacer import replace_numbers
 from .replacer import replace_prices
 from .replacer import replace_urls
 
 
-class JText:
+class JTextProcessor:
 
     def __init__(self):
         self._pipeline = []
@@ -27,7 +26,6 @@ class JText:
             'to_full_width': kana_to_full,
             'digits': digits_to_half,
             'alpha_to_full': alpha_to_full,
-            'normalize': normalize_words,
             'lower': lower
         }
 

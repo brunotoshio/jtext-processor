@@ -13,10 +13,7 @@ class MeCabHandler:
         filtered_words = []
         while result:
             features = result.feature.split(',')
-            if features[0] in {"動詞"} and features[1] == "自立":
-                filtered_words.append(features[6])
-            else:
-                filtered_words.append(result.surface)
+            filtered_words.append(features[6])
             result = result.next
 
         return " ".join(filtered_words)

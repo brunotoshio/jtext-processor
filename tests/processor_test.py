@@ -8,7 +8,7 @@ from jtextprocessor import processor
 
 @mock.patch('jtextprocessor.processor.alpha_to_full')
 def test_class_jtext_alpha_to_full(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'alpha_to_full'}
     ])
@@ -18,7 +18,7 @@ def test_class_jtext_alpha_to_full(mocked):
 
 @mock.patch('jtextprocessor.processor.digits_to_half')
 def test_class_jtext_digits(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'digits'}
     ])
@@ -28,7 +28,7 @@ def test_class_jtext_digits(mocked):
 
 @mock.patch('jtextprocessor.processor.kana_to_full')
 def test_class_jtext_to_full_width(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'to_full_width'}
     ])
@@ -36,19 +36,9 @@ def test_class_jtext_to_full_width(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.normalize_words')
-def test_class_jtext_normalize(mocked):
-    jtext = processor.JText()
-    jtext.prepare([
-        {'normalize'}
-    ])
-    jtext.run('kore')
-    assert mocked.called
-
-
 @mock.patch('jtextprocessor.processor.lower')
 def test_class_jtext_lower(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'lower'}
     ])
@@ -58,7 +48,7 @@ def test_class_jtext_lower(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_numbers')
 def test_class_jtext_replace_numbers(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'replace_numbers': {'replace_text': 'n'}}
     ])
@@ -68,7 +58,7 @@ def test_class_jtext_replace_numbers(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_numbers')
 def test_class_jtext_remove_numbers(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'remove_numbers'}
     ])
@@ -78,7 +68,7 @@ def test_class_jtext_remove_numbers(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_prices')
 def test_class_jtext_replace_prices(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'replace_prices': {'replace_text': '$'}}
     ])
@@ -88,7 +78,7 @@ def test_class_jtext_replace_prices(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_prices')
 def test_class_jtext_remove_prices(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'remove_prices'}
     ])
@@ -98,7 +88,7 @@ def test_class_jtext_remove_prices(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_urls')
 def test_class_jtext_replace_url(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'replace_url': {'replace_text': 'url'}}
     ])
@@ -108,7 +98,7 @@ def test_class_jtext_replace_url(mocked):
 
 @mock.patch('jtextprocessor.processor.replace_urls')
 def test_class_jtext_remove_url(mocked):
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     jtext.prepare([
         {'remove_url'}
     ])
@@ -117,12 +107,11 @@ def test_class_jtext_remove_url(mocked):
 
 
 def test_class_jtext_prepare():
-    jtext = processor.JText()
+    jtext = processor.JTextProcessor()
     list_of_tasks = [
         {'alpha_to_full'},
         {'digits'},
         {'to_full_width'},
-        {'normalize'},
         {'lower'},
         {'replace_numbers': {'replace_text': 'n'}},
         {'remove_numbers'},
@@ -138,6 +127,6 @@ def test_class_jtext_prepare():
 
 def test_class_jtext_prepare_error(caplog):
     with caplog.at_level(logging.ERROR):
-        jtext = processor.JText()
+        jtext = processor.JTextProcessor()
         jtext.prepare([{'non_existing_task'}])
         assert ['Invalid operation: non_existing_task'] == [rec.message for rec in caplog.records]
