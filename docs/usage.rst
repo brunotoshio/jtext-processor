@@ -37,8 +37,7 @@ List of tasks
 * *lower*: Converts to lower case.
 * *replace_numbers*: Replace all numbers with a ```replace_text``` (default #).
 * *remove_numbers*: Remove all numbers.
-* *replace_prices*: Replace all prices with a ```replace_text``` (default #).
-	* Prices have the format 1,234,567.8912円
+* *replace_prices*: Replace all prices with a ```replace_text``` (default #). Prices should have the format 1,234,567.8912円.
 * *remove_prices*: Remove all prices.
 * *replace_url*: Replace all urls with a ```replace_text``` (default '').
 * *remove_url*: Remove all urls.
