@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 from unittest import mock
+
 from jtextprocessor import processor
 
 
@@ -58,7 +59,7 @@ def test_class_jtext_lower(mocked):
 def test_class_jtext_replace_numbers(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        {'replace_numbers'}
+        {'replace_numbers': {'replace_text': 'n'}}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -78,7 +79,7 @@ def test_class_jtext_remove_numbers(mocked):
 def test_class_jtext_replace_prices(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        {'replace_prices'}
+        {'replace_prices': {'replace_text': '$'}}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -98,7 +99,7 @@ def test_class_jtext_remove_prices(mocked):
 def test_class_jtext_replace_url(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        {'replace_url'}
+        {'replace_url': {'replace_text': 'url'}}
     ])
     jtext.run('kore')
     assert mocked.called
