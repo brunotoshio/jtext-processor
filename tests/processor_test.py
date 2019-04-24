@@ -141,4 +141,3 @@ def test_class_jtext_prepare_error(caplog):
         jtext = processor.JText()
         jtext.prepare([{'non_existing_task'}])
         assert ['Invalid operation: non_existing_task'] == [rec.message for rec in caplog.records]
-
