@@ -44,7 +44,7 @@ class JText:
             else:
                 logging.error(f'Invalid operation: {operation}')
                 return
-    
+
     def run(self, text):
         next_input = text
         for task in self._pipeline:
@@ -54,4 +54,3 @@ class JText:
             else:
                 next_input = task['handler'](next_input)
         return next_input
-        

@@ -8,7 +8,7 @@ from jtextprocessor import processor
 def test_class_jtext_alpha_to_full(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'alpha_to_full' }
+        {'alpha_to_full'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -18,7 +18,7 @@ def test_class_jtext_alpha_to_full(mocked):
 def test_class_jtext_digits(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'digits' }
+        {'digits'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -28,7 +28,7 @@ def test_class_jtext_digits(mocked):
 def test_class_jtext_to_full_width(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'to_full_width' }
+        {'to_full_width'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -38,7 +38,7 @@ def test_class_jtext_to_full_width(mocked):
 def test_class_jtext_normalize(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'normalize' }
+        {'normalize'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -48,7 +48,7 @@ def test_class_jtext_normalize(mocked):
 def test_class_jtext_lower(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'lower' }
+        {'lower'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -58,7 +58,7 @@ def test_class_jtext_lower(mocked):
 def test_class_jtext_replace_numbers(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'replace_numbers' }
+        {'replace_numbers'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -68,7 +68,7 @@ def test_class_jtext_replace_numbers(mocked):
 def test_class_jtext_remove_numbers(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'remove_numbers' }
+        {'remove_numbers'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -78,7 +78,7 @@ def test_class_jtext_remove_numbers(mocked):
 def test_class_jtext_replace_prices(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'replace_prices' }
+        {'replace_prices'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -88,7 +88,7 @@ def test_class_jtext_replace_prices(mocked):
 def test_class_jtext_remove_prices(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'remove_prices' }
+        {'remove_prices'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -98,7 +98,7 @@ def test_class_jtext_remove_prices(mocked):
 def test_class_jtext_replace_url(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'replace_url' }
+        {'replace_url'}
     ])
     jtext.run('kore')
     assert mocked.called
@@ -108,7 +108,7 @@ def test_class_jtext_replace_url(mocked):
 def test_class_jtext_remove_url(mocked):
     jtext = processor.JText()
     jtext.prepare([
-        { 'remove_url' }
+        {'remove_url'}
     ])
     jtext.run('kore')
     assert mocked.called
