@@ -25,7 +25,7 @@ def read(*names, **kwargs):
 
 setup(
     name='jtextprocessor',
-    version='0.0.0',
+    version='0.1.0b',
     license='MIT license',
     description='Tools for preprocessing Japanese texts',
     long_description='%s\n%s' % (
