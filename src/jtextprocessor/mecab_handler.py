@@ -13,7 +13,10 @@ class MeCabHandler:
         filtered_words = []
         while result:
             features = result.feature.split(',')
-            filtered_words.append(features[6])
+            if features.split(",")[0] == u"名詞":
+                filtered_words.append(result.surface)
+            else:
+                filtered_words.append(features[6])
             result = result.next
 
         return " ".join(filtered_words)
@@ -29,7 +32,7 @@ class MeCabHandler:
             if features[0] in {"動詞"} and features[1] == "自立":
                 filtered_words.append(features[6])
             if features[0] in {"名詞"} and features[1] not in {"数", "接尾"}:
-                filtered_words.append(features[6])
+                filtered_words.append(result.surface)
             result = result.next
 
         return " ".join(filtered_words)
@@ -41,7 +44,7 @@ class MeCabHandler:
         while result:
             features = result.feature.split(',')
             if features[0] in {"名詞"}:
-                filtered_words.append(features[6])
+                filtered_words.append(result.surface)
             result = result.next
 
         return " ".join(filtered_words)
@@ -55,7 +58,7 @@ class MeCabHandler:
             if features[0] in {"動詞"} and features[1] == "自立":
                 filtered_words.append(features[6])
             if features[0] in {"名詞"} and features[1] in {"サ変接続"}:
-                filtered_words.append(features[6])
+                filtered_words.append(result.surface)
             result = result.next
 
         return " ".join(filtered_words)
