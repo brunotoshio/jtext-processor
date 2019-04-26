@@ -13,7 +13,7 @@ class MeCabHandler:
         filtered_words = []
         while result:
             features = result.feature.split(',')
-            if features.split(",")[0] == u"名詞":
+            if features[0] == u"名詞":
                 filtered_words.append(result.surface)
             else:
                 filtered_words.append(features[6])
