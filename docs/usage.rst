@@ -4,7 +4,7 @@ Usage
 
 To use Kotonoha in a project:
 
-..code-block:: python
+..code-block::
 
 	from kotonoha import Kotonoha
 
