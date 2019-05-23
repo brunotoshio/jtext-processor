@@ -48,6 +48,8 @@ MeCab handler
 
 There is a class MeCabHandler which can be used to simplify some basic configurations for filtering and lemmatization of words.
 
+..code-block::python
+
 	from kotonoha import MeCabHandler
 	import MeCab
 
