@@ -2,7 +2,9 @@
 Usage
 =====
 
-To use Kotonoha in a project::
+To use Kotonoha in a project:
+
+..code-block:: python
 
 	from kotonoha import Kotonoha
 
@@ -48,7 +50,7 @@ MeCab handler
 
 There is a class MeCabHandler which can be used to simplify some basic configurations for filtering and lemmatization of words.
 
-..code-block::python
+.. code-block:: python
 
 	from kotonoha import MeCabHandler
 	import MeCab
