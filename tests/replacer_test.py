@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-from jtextprocessor import replacer
+from kotonoha import replacer
 
 
 def test_replace_urls_with_a_text_without_url():

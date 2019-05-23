@@ -12,7 +12,7 @@ from .replacer import replace_prices
 from .replacer import replace_urls
 
 
-class JTextProcessor:
+class Kotonoha(object):
 
     def __init__(self):
         self._pipeline = []

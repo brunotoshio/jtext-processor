@@ -27,25 +27,25 @@ Overview
     :alt: Coverage Status
     :target: https://coveralls.io/r/brunotoshio/jtext-processor
 
-.. |version| image:: https://img.shields.io/pypi/v/jtextprocessor.svg
+.. |version| image:: https://img.shields.io/pypi/v/kotonoha.svg
     :alt: PyPI Package latest release
-    :target: https://pypi.org/project/jtextprocessor
+    :target: https://pypi.org/project/kotonoha
 
 .. |commits-since| image:: https://img.shields.io/github/commits-since/brunotoshio/jtext-processor/v0.2.1.svg
     :alt: Commits since latest release
     :target: https://github.com/brunotoshio/jtext-processor/compare/v0.2.1...master
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/jtextprocessor.svg
+.. |wheel| image:: https://img.shields.io/pypi/wheel/kotonoha.svg
     :alt: PyPI Wheel
-    :target: https://pypi.org/project/jtextprocessor
+    :target: https://pypi.org/project/kotonoha
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/jtextprocessor.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/kotonoha.svg
     :alt: Supported versions
-    :target: https://pypi.org/project/jtextprocessor
+    :target: https://pypi.org/project/kotonoha
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/jtextprocessor.svg
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/kotonoha.svg
     :alt: Supported implementations
-    :target: https://pypi.org/project/jtextprocessor
+    :target: https://pypi.org/project/kotonoha
 
 
 .. end-badges
@@ -59,7 +59,7 @@ Installation
 
 ::
 
-    pip install jtextprocessor
+    pip install kotonoha
 
 Documentation
 =============

@@ -6,7 +6,7 @@ source =
 [run]
 branch = true
 source =
-    jtextprocessor
+    kotonoha
     tests
 parallel = true
 

@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='jtextprocessor',
+    name='kotonoha',
     version='0.2.1',
     license='MIT license',
     description='Tools for preprocessing Japanese texts',

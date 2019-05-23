@@ -22,7 +22,7 @@ if os.getenv('SPELLCHECK'):
 
 source_suffix = '.rst'
 master_doc = 'index'
-project = 'JTextProcessor'
+project = 'Kotonoha'
 year = '2019'
 author = 'Bruno Toshio Sugano'
 copyright = '{0}, {1}'.format(year, author)

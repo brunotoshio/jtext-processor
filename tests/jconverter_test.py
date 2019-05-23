@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-from jtextprocessor import jconverter
+from kotonoha import jconverter
 
 
 def test_kana_to_full():

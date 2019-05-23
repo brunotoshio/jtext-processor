@@ -2,11 +2,11 @@
 Usage
 =====
 
-To use JTextProcessor in a project::
+To use Kotonoha in a project::
 
-	from jtextprocessor import JTextProcessor
+	from kotonoha import Kotonoha
 
-	jtp = JTextProcessor()
+	jtp = Kotonoha()
 
 	pipeline = [
 		{
@@ -25,7 +25,7 @@ To use JTextProcessor in a project::
 Getting started
 ---------------
 
-JTextProcessor will execute all tasks defined in the pipeline sequentially.
+Kotonoha will execute all tasks defined in the pipeline sequentially.
 
 -------------
 List of tasks
@@ -48,7 +48,7 @@ MeCab handler
 
 There is a class MeCabHandler which can be used to simplify some basic configurations for filtering and lemmatization of words.
 
-	from jtextprocessor import MeCabHandler
+	from kotonoha import MeCabHandler
 	import MeCab
 
 	tagger = MeCab.Tagger('-Ochasen -d ' + neologd_path)

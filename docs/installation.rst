@@ -4,4 +4,4 @@ Installation
 
 At the command line::
 
-    pip install jtextprocessor
+    pip install kotonoha

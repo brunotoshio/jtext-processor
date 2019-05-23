@@ -3,12 +3,12 @@
 import logging
 from unittest import mock
 
-from jtextprocessor import processor
+from kotonoha import kotonoha
 
 
-@mock.patch('jtextprocessor.processor.alpha_to_full')
+@mock.patch('kotonoha.kotonoha.alpha_to_full')
 def test_class_jtext_alpha_to_full(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'alpha_to_full'}
     ])
@@ -16,9 +16,9 @@ def test_class_jtext_alpha_to_full(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.digits_to_half')
+@mock.patch('kotonoha.kotonoha.digits_to_half')
 def test_class_jtext_digits(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'digits'}
     ])
@@ -26,9 +26,9 @@ def test_class_jtext_digits(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.kana_to_full')
+@mock.patch('kotonoha.kotonoha.kana_to_full')
 def test_class_jtext_to_full_width(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'to_full_width'}
     ])
@@ -36,9 +36,9 @@ def test_class_jtext_to_full_width(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.lower')
+@mock.patch('kotonoha.kotonoha.lower')
 def test_class_jtext_lower(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'lower'}
     ])
@@ -46,9 +46,9 @@ def test_class_jtext_lower(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_numbers')
+@mock.patch('kotonoha.kotonoha.replace_numbers')
 def test_class_jtext_replace_numbers(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'replace_numbers': {'replace_text': 'n'}}
     ])
@@ -56,9 +56,9 @@ def test_class_jtext_replace_numbers(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_numbers')
+@mock.patch('kotonoha.kotonoha.replace_numbers')
 def test_class_jtext_remove_numbers(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'remove_numbers'}
     ])
@@ -66,9 +66,9 @@ def test_class_jtext_remove_numbers(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_prices')
+@mock.patch('kotonoha.kotonoha.replace_prices')
 def test_class_jtext_replace_prices(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'replace_prices': {'replace_text': '$'}}
     ])
@@ -76,9 +76,9 @@ def test_class_jtext_replace_prices(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_prices')
+@mock.patch('kotonoha.kotonoha.replace_prices')
 def test_class_jtext_remove_prices(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'remove_prices'}
     ])
@@ -86,9 +86,9 @@ def test_class_jtext_remove_prices(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_urls')
+@mock.patch('kotonoha.kotonoha.replace_urls')
 def test_class_jtext_replace_url(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'replace_url': {'replace_text': 'url'}}
     ])
@@ -96,9 +96,9 @@ def test_class_jtext_replace_url(mocked):
     assert mocked.called
 
 
-@mock.patch('jtextprocessor.processor.replace_urls')
+@mock.patch('kotonoha.kotonoha.replace_urls')
 def test_class_jtext_remove_url(mocked):
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     jtext.prepare([
         {'remove_url'}
     ])
@@ -107,7 +107,7 @@ def test_class_jtext_remove_url(mocked):
 
 
 def test_class_jtext_prepare():
-    jtext = processor.JTextProcessor()
+    jtext = kotonoha.Kotonoha()
     list_of_tasks = [
         {'alpha_to_full'},
         {'digits'},
@@ -127,6 +127,6 @@ def test_class_jtext_prepare():
 
 def test_class_jtext_prepare_error(caplog):
     with caplog.at_level(logging.ERROR):
-        jtext = processor.JTextProcessor()
+        jtext = kotonoha.Kotonoha()
         jtext.prepare([{'non_existing_task'}])
         assert ['Invalid operation: non_existing_task'] == [rec.message for rec in caplog.records]

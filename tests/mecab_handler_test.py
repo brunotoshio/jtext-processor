@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 import pytest
 
-from jtextprocessor.mecab_handler import MeCabHandler
+from kotonoha.mecab_handler import MeCabHandler
 
 
 class Struct:
