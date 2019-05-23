@@ -31,8 +31,8 @@ version = release = '0.2.1'
 pygments_style = 'trac'
 templates_path = ['.']
 extlinks = {
-    'issue': ('https://github.com/brunotoshio/jtext-processor/issues/%s', '#'),
-    'pr': ('https://github.com/brunotoshio/jtext-processor/pull/%s', 'PR #'),
+    'issue': ('https://github.com/brunotoshio/kotonoha/issues/%s', '#'),
+    'pr': ('https://github.com/brunotoshio/kotonoha/pull/%s', 'PR #'),
 }
 # on_rtd is whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'

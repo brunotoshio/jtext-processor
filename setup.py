@@ -34,7 +34,7 @@ setup(
     ),
     author='Bruno Toshio Sugano',
     author_email='brunotoshio@gmail.com',
-    url='https://github.com/brunotoshio/jtext-processor',
+    url='https://github.com/brunotoshio/kotonoha',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
@@ -52,9 +52,9 @@ setup(
         'Topic :: Utilities',
     ],
     project_urls={
-        'Documentation': 'https://jtext-processor.readthedocs.io/',
-        'Changelog': 'https://jtext-processor.readthedocs.io/en/latest/changelog.html',
-        'Issue Tracker': 'https://github.com/brunotoshio/jtext-processor/issues',
+        'Documentation': 'https://kotonoha.readthedocs.io/',
+        'Changelog': 'https://kotonoha.readthedocs.io/en/latest/changelog.html',
+        'Issue Tracker': 'https://github.com/brunotoshio/kotonoha/issues',
     },
     keywords=[
         'japanese', 'textprocessing', 'nlp',
