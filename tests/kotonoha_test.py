@@ -106,6 +106,36 @@ def test_class_jtext_remove_url(mocked):
     assert mocked.called
 
 
+@mock.patch('kotonoha.kotonoha.replace_hashtags')
+def test_class_jtext_replace_hashtag(mocked):
+    jtext = kotonoha.Kotonoha()
+    jtext.prepare([
+        {'replace_hashtags'}
+    ])
+    jtext.run('kore')
+    assert mocked.called
+
+
+@mock.patch('kotonoha.kotonoha.replace_emails')
+def test_class_jtext_replace_email(mocked):
+    jtext = kotonoha.Kotonoha()
+    jtext.prepare([
+        {'replace_emails'}
+    ])
+    jtext.run('kore')
+    assert mocked.called
+
+
+@mock.patch('kotonoha.kotonoha.replace_mentions')
+def test_class_jtext_replace_mention(mocked):
+    jtext = kotonoha.Kotonoha()
+    jtext.prepare([
+        {'replace_mentions'}
+    ])
+    jtext.run('kore')
+    assert mocked.called
+
+
 def test_class_jtext_prepare():
     jtext = kotonoha.Kotonoha()
     list_of_tasks = [
@@ -118,7 +148,10 @@ def test_class_jtext_prepare():
         {'replace_prices': {'replace_text': '$'}},
         {'remove_prices'},
         {'replace_url': {'replace_text': 'url'}},
-        {'remove_url'}
+        {'remove_url'},
+        {'replace_hashtags': {'replace_text': 'hash'}},
+        {'replace_emails': {'replace_text': 'email'}},
+        {'replace_mentions': {'replace_text': 'mention'}}
     ]
     assert len(list_of_tasks) == len(jtext._operators.keys())
     jtext.prepare(list_of_tasks)

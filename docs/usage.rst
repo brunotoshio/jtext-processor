@@ -41,6 +41,9 @@ List of tasks
 * *remove_prices*: Remove all prices.
 * *replace_url*: Replace all urls with a ```replace_text``` (default '').
 * *remove_url*: Remove all urls.
+* *replace_hashtags*: Replace all hashtags with a ```replace_text``` (default '').
+* *replace_emails*: Replace all emails with a ```replace_text``` (default '').
+* *replace_mentions*: Replace all mentions with a ```replace_text``` (default '').
 
 -------------
 MeCab handler

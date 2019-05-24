@@ -7,6 +7,9 @@ from .jconverter import alpha_to_full
 from .jconverter import digits_to_half
 from .jconverter import kana_to_full
 from .replacer import lower
+from .replacer import replace_emails
+from .replacer import replace_hashtags
+from .replacer import replace_mentions
 from .replacer import replace_numbers
 from .replacer import replace_prices
 from .replacer import replace_urls
@@ -26,7 +29,10 @@ class Kotonoha(object):
             'to_full_width': kana_to_full,
             'digits': digits_to_half,
             'alpha_to_full': alpha_to_full,
-            'lower': lower
+            'lower': lower,
+            'replace_hashtags': replace_hashtags,
+            'replace_emails': replace_emails,
+            'replace_mentions': replace_mentions
         }
 
     def prepare(self, pipeline):

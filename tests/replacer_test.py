@@ -63,3 +63,33 @@ def test_replace_with_regex_and_a_different_string():
 def test_lower():
     text = 'This number 1234 is SO small'
     assert replacer.lower(text) == 'this number 1234 is so small'
+
+
+def test_replace_hashtags_with_a_text_without_any_hashtag():
+    text = 'This text does not contain any hashtag'
+    assert replacer.replace_hashtags(text) == text
+
+
+def test_replace_hashtags_with_a_text_that_contains_hashtags():
+    text = 'This text contains hashtags #abc a#aaa #これは'
+    assert replacer.replace_hashtags(text) == 'This text contains hashtags a#aaa'
+
+
+def test_replace_emails_with_a_text_without_any_email():
+    text = 'This text does not contain any email'
+    assert replacer.replace_emails(text) == text
+
+
+def test_replace_emails_with_a_text_that_contains_emails():
+    text = 'This text contains emails test.test@email.com aa@aa@aa.com aa_as.aa+asd@e.b.c.s'
+    assert replacer.replace_emails(text) == 'This text contains emails aa@aa@aa.com'
+
+
+def test_replace_mentions_with_a_text_without_any_mention():
+    text = 'This text does not contain any mention'
+    assert replacer.replace_mentions(text) == text
+
+
+def test_replace_mentions_with_a_text_that_contains_mentions():
+    text = 'This text contains mentions @abc @as_aa @as213_asd2 @aa.aa'
+    assert replacer.replace_mentions(text) == 'This text contains mentions @aa.aa'
