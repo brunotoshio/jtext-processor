@@ -31,9 +31,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.org/project/kotonoha
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/brunotoshio/kotonoha/v0.3.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/brunotoshio/kotonoha/v0.3.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/brunotoshio/kotonoha/compare/v0.3.0...master
+    :target: https://github.com/brunotoshio/kotonoha/compare/v0.3.1...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/kotonoha.svg
     :alt: PyPI Wheel
