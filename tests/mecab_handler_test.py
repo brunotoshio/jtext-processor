@@ -13,7 +13,7 @@ class Struct:
 class MecabNode:
     def __init__(self, feature):
         self.feature = feature
-        self.surface = "aaa"
+        self.surface = 'aaa'
         self.next = None
 
 
@@ -46,7 +46,6 @@ def mecab_mocker():
 
 def test_basic(mecab_mocker, mocker):
     handler = MeCabHandler(mecab_mocker)
-    print(mecab_mocker.parseToNode('111'))
     mocker.spy(mecab_mocker, 'parse')
     mocker.spy(mecab_mocker, 'parseToNode')
     handler.basic('aaa')
@@ -56,7 +55,6 @@ def test_basic(mecab_mocker, mocker):
 
 def test_meaningful(mecab_mocker, mocker):
     handler = MeCabHandler(mecab_mocker)
-    print(mecab_mocker.parseToNode('111'))
     mocker.spy(mecab_mocker, 'parse')
     mocker.spy(mecab_mocker, 'parseToNode')
     handler.meaningful('aaa')
@@ -66,7 +64,6 @@ def test_meaningful(mecab_mocker, mocker):
 
 def test_by_filter(mecab_mocker, mocker):
     handler = MeCabHandler(mecab_mocker)
-    print(mecab_mocker.parseToNode('111'))
     mocker.spy(mecab_mocker, 'parse')
     mocker.spy(mecab_mocker, 'parseToNode')
     filter_func = mocker.stub()
@@ -74,11 +71,11 @@ def test_by_filter(mecab_mocker, mocker):
     assert mecab_mocker.parse.call_count == 1
     assert mecab_mocker.parseToNode.call_count == 1
     assert filter_func.call_count == 6
+    assert all([a == b for a, b in zip(filter_func.call_args_list[5][0][0], ['形容詞', '', '', '', '', '', 'bla', 'aaa'])])
 
 
 def test_nouns(mecab_mocker, mocker):
     handler = MeCabHandler(mecab_mocker)
-    print(mecab_mocker.parseToNode('111'))
     mocker.spy(mecab_mocker, 'parse')
     mocker.spy(mecab_mocker, 'parseToNode')
     handler.nouns('aaa')
@@ -88,7 +85,6 @@ def test_nouns(mecab_mocker, mocker):
 
 def test_verbs(mecab_mocker, mocker):
     handler = MeCabHandler(mecab_mocker)
-    print(mecab_mocker.parseToNode('111'))
     mocker.spy(mecab_mocker, 'parse')
     mocker.spy(mecab_mocker, 'parseToNode')
     handler.verbs('aaa')

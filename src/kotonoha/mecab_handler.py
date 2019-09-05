@@ -43,6 +43,7 @@ class MeCabHandler:
         filtered_words = []
         while result:
             features = result.feature.split(',')
+            features.append(result.surface)
             text = filter_function(features)
             if len(text) > 0:
                 filtered_words.append(text)

@@ -68,7 +68,8 @@ There is a class MeCabHandler which can be used to simplify some basic configura
 	handler.basic('...')  # => string containing all words, separated by spaces, all words are in their lemma format.
 
 If you need to use a custom filter for MeCab, you can use the ```by_filter``` function and implement your own custom filter function.
-The filter function will receive a list of 7 strings containing the 7 features from MeCab's parseToNode result and must return a text.
+The filter function will receive a list of 8 strings containing the 7 features from MeCab's parseToNode result + the surface.
+The filter function must return a text.
 
 ..code-block:: python
 
@@ -79,13 +80,13 @@ The filter function will receive a list of 7 strings containing the 7 features f
 
 	handler = MeCabHandler(tagger)
 
-	def my_custom_filter(features):
-		if features[0] == '形容詞':
-			return features[6]
-		if features[0] == '動詞' and features[1] == '自立':
-			return features[6]
-		if features[0] == '名詞' and features[1] not in {'数', '接尾'}:
-			return result.surface
+	def my_custom_filter(args):
+		if args[0] == '形容詞':
+			return args[6]
+		if args[0] == '動詞' and args[1] == '自立':
+			return args[6]
+		if args[0] == '名詞' and args[1] not in {'数', '接尾'}:
+			return args[8]
 		else
 			return ''
 	
