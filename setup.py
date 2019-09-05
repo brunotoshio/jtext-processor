@@ -25,7 +25,7 @@ def read(*names, **kwargs):
 
 setup(
     name='kotonoha',
-    version='0.4.0',
+    version='0.4.1',
     license='MIT license',
     description='Tools for preprocessing Japanese texts',
     long_description='%s\n%s' % (
