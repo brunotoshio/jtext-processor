@@ -37,6 +37,19 @@ class MeCabHandler:
 
         return " ".join(filtered_words)
 
+    def by_filter(self, text, filter_function):
+        self._handler.parse("")
+        result = self._handler.parseToNode(text)
+        filtered_words = []
+        while result:
+            features = result.feature.split(',')
+            text = filter_function(features)
+            if len(text) > 0:
+                filtered_words.append(text)
+            result = result.next
+
+        return " ".join(filtered_words)
+
     def nouns(self, text):
         self._handler.parse("")
         result = self._handler.parseToNode(text)

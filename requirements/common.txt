@@ -1,1 +1,2 @@
 jaconv==0.2.4
+neologdn==0.4

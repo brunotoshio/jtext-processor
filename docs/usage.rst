@@ -66,3 +66,28 @@ There is a class MeCabHandler which can be used to simplify some basic configura
 	handler.verbs('...')  # => string containing verbs, separated by spaces, all words are in their lemma format.
 	handler.meaningful('...')  # => string containing nouns, verbs and adjectives, separated by spaces, all words are in their lemma format.
 	handler.basic('...')  # => string containing all words, separated by spaces, all words are in their lemma format.
+
+If you need to use a custom filter for MeCab, you can use the ```by_filter``` function and implement your own custom filter function.
+The filter function will receive a list of 7 strings containing the 7 features from MeCab's parseToNode result and must return a text.
+
+..code-block:: python
+
+	from kotonoha import MeCabHandler
+	import MeCab
+
+	tagger = MeCab.Tagger('-Ochasen -d ' + neologd_path)
+
+	handler = MeCabHandler(tagger)
+
+	def my_custom_filter(features):
+		if features[0] == '形容詞':
+			return features[6]
+		if features[0] == '動詞' and features[1] == '自立':
+			return features[6]
+		if features[0] == '名詞' and features[1] not in {'数', '接尾'}:
+			return result.surface
+		else
+			return ''
+	
+	handler.by_filter('...', my_custom_filter)
+
